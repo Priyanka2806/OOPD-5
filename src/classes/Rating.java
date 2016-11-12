@@ -2,12 +2,20 @@ package classes;
 
 import java.sql.Timestamp;
 
+import dbClasses.CommentRateDB;
+
 public class Rating {
 
 	private String postUsername;
 	private Timestamp postTime;
 	private String raterUsername;
 	private float stars;
+	private int addRatingResult=0;
+	
+	public Rating()
+	{
+		super();
+	}
 	public String getPostUsername() {
 		return postUsername;
 	}
@@ -38,6 +46,9 @@ public class Rating {
 		this.postTime = postTime;
 		this.raterUsername = raterUsername;
 		this.stars = stars;
+		CommentRateDB rdb = new CommentRateDB();
+		addRatingResult=rdb.addRating(postUsername,postTime,raterUsername,stars);
+
 	}
 	
 	

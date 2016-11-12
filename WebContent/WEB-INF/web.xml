@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>Assignment-5-OOPD</display-name>
+  <display-name>SmartHealthAss4</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -9,4 +9,233 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <servlet-name>login</servlet-name>
+    <servlet-class>servlets.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>login</servlet-name>
+    <url-pattern>/UserProfilePage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>signUp</servlet-name>
+    <servlet-class>servlets.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>signUp</servlet-name>
+    <url-pattern>/SignUp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>createProfile</servlet-name>
+    <servlet-class>servlets.SelectedUserTypeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>createProfile</servlet-name>
+    <url-pattern>/FillDetails</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>detailsFilled</servlet-name>
+    <servlet-class>servlets.CreateProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>detailsFilled</servlet-name>
+    <url-pattern>/ProfileCreated</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>profileCreatedLogin</servlet-name>
+    <servlet-class>servlets.MessageDisplayServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>profileCreatedLogin</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>profileCreatedExit</servlet-name>
+    <servlet-class>servlets.MessageDisplayServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>profileCreatedExit</servlet-name>
+    <url-pattern>/Later</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>deleteProfile</servlet-name>
+    <servlet-class>servlets.UserProfilePageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteProfile</servlet-name>
+    <url-pattern>/deleteAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>deleteConfirm</servlet-name>
+    <servlet-class>servlets.DeleteProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteConfirm</servlet-name>
+    <url-pattern>/confirmAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>deleteCancel</servlet-name>
+    <servlet-class>servlets.DeleteProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteCancel</servlet-name>
+    <url-pattern>/cancelAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>updateProfile</servlet-name>
+    <servlet-class>servlets.UserProfilePageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateProfile</servlet-name>
+    <url-pattern>/updateAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>updateProfileDone</servlet-name>
+    <servlet-class>servlets.UpdateProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateProfileDone</servlet-name>
+    <url-pattern>/UpdatePage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>viewFriends</servlet-name>
+    <servlet-class>servlets.ViewFriendsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewFriends</servlet-name>
+    <url-pattern>/viewFriendsAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>withdrawButton</servlet-name>
+    <servlet-class>servlets.ViewActiveUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>withdrawButton</servlet-name>
+    <url-pattern>/withdrawlistAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>sendReqButton</servlet-name>
+    <servlet-class>servlets.ViewActiveUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sendReqButton</servlet-name>
+    <url-pattern>/viewActiveUsersAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>viewPFRUsers</servlet-name>
+    <servlet-class>servlets.PendingFriendRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewPFRUsers</servlet-name>
+    <url-pattern>/viewPendingRequestsAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>unFriend</servlet-name>
+    <servlet-class>servlets.UnfriendedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>unFriend</servlet-name>
+    <url-pattern>/UnfriendAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>accept</servlet-name>
+    <servlet-class>servlets.AcceptRejectRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>accept</servlet-name>
+    <url-pattern>/acceptAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>reject</servlet-name>
+    <servlet-class>servlets.AcceptRejectRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>reject</servlet-name>
+    <url-pattern>/rejectAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>sendRequest</servlet-name>
+    <servlet-class>servlets.SendRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sendRequest</servlet-name>
+    <url-pattern>/SendAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>withdrawRequest</servlet-name>
+    <servlet-class>servlets.SendWithdrawRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>withdrawRequest</servlet-name>
+    <url-pattern>/WithdrawAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>logout</servlet-name>
+    <servlet-class>servlets.UserProfilePageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logout</servlet-name>
+    <url-pattern>/logoutAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>updateBack</servlet-name>
+    <servlet-class>servlets.UpdateProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateBack</servlet-name>
+    <url-pattern>/backAction1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>friendsBack</servlet-name>
+    <servlet-class>servlets.UnfriendedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>friendsBack</servlet-name>
+    <url-pattern>/backAction3</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>sendsBack</servlet-name>
+    <servlet-class>servlets.SendRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sendsBack</servlet-name>
+    <url-pattern>/backAction321</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>withdrawsBack</servlet-name>
+    <servlet-class>servlets.SendWithdrawRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>withdrawsBack</servlet-name>
+    <url-pattern>/backAction123</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>pfrBack</servlet-name>
+    <servlet-class>servlets.AcceptRejectRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pfrBack</servlet-name>
+    <url-pattern>/backAction4</url-pattern>
+  </servlet-mapping>
 </web-app>

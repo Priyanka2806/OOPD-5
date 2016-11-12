@@ -126,12 +126,31 @@ public class Forum
 		return flag;
 		
 	}
-
-	public int searchForum(int fID)
+	//To search for a forum and display its details
+	public int searchForum(int fID) throws SQLException
 	{
+		int res=0;
+		ResultSet rs=null;
 		ForumDB forumdb = new ForumDB();
 		forumdb.searchForumDB(fID);
-		return fID;
+		Post post_obj = new Post();
+		rs=post_obj.viewPosts(fID);
+		while(rs.next())
+		{
+			Post pst = new Post();
+			try {
+				pst.setUsername(rs.getString(1));
+				pst.setTextEntry(rs.getString(2));
+				pst.setPhotoLocation(rs.getString(3));
+				pst.setLinkLocation(rs.getString(4));
+				pst.setVideoLocation(rs.getString(5));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			postList.add(pst);
+		}
+		return res;
 	}
 	
 	public void closeForum(String modName)
@@ -155,5 +174,6 @@ public class Forum
 			System.out.println("Forum deleted successfully!!");
 		}
 	}
+	
 	
 }

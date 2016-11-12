@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 public class DBDemo {
 	
 	private final static String userName = "root";
-	private final static String password = "riya3005";
+	private final static String password = "root";
 	static Connection con = null;
 	public static Connection getCon(){
 		if(con == null){

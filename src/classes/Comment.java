@@ -2,6 +2,9 @@ package classes;
 
 import java.sql.Timestamp;
 
+import dbClasses.CommentRateDB;
+import dbClasses.PostDB;
+
 public class Comment {
  private String postUsername;
  private Timestamp postTime;
@@ -11,6 +14,10 @@ public class Comment {
  private String photoLocation;
  private String videoLocation;
  private String linkLocation;
+ public Comment()
+ {
+	 super();
+ }
 public String getPostUsername() {
 	return postUsername;
 }
@@ -62,6 +69,7 @@ public void setLinkLocation(String linkLocation) {
 public Comment(String postUsername, Timestamp postTime, String commentUsername, Timestamp commentTime,
 		String commentText, String photoLocation, String videoLocation, String linkLocation) {
 	super();
+	int addCommentResult=0;
 	this.postUsername = postUsername;
 	this.postTime = postTime;
 	this.commentUsername = commentUsername;
@@ -70,6 +78,8 @@ public Comment(String postUsername, Timestamp postTime, String commentUsername, 
 	this.photoLocation = photoLocation;
 	this.videoLocation = videoLocation;
 	this.linkLocation = linkLocation;
+	CommentRateDB cdb = new CommentRateDB();
+	addCommentResult=cdb.addComment(postUsername,postTime,commentUsername,commentTime,commentText,photoLocation,linkLocation,videoLocation);
 }
 
 }
