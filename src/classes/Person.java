@@ -18,6 +18,11 @@ public abstract class Person {
 	private long regTime;
 	private int userType;
 	
+	public Person()
+	{
+		super();
+	}
+	
 	public Person(String username, String primaryEmail, String secondaryEmail, String password, String firstName,
 			String lastName, String address, String aboutMe, String[] photoURL, long regTime, int userType) {
 		super();
@@ -104,6 +109,6 @@ public abstract class Person {
 	
 	abstract public ResultSet displayDetails(String username);
 	abstract public  int updateDetails(String username, int selection, String value);
-	abstract public void deleteUser(String username);
+	abstract public int deleteUser(String username);
 	
 }

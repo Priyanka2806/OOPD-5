@@ -63,12 +63,13 @@ public class Moderator extends Person{
 	}
 	
 	@Override
-	public void deleteUser(String username) {
+	public int deleteUser(String username) {
 		SmartHealthDB shdb = new SmartHealthDB();
 		int var = shdb.deactivateUser(username);
 		if(var == 1){
 			System.out.println("User deactivated successfully!!");
 		}
+		return var;
 		
 	}
 }

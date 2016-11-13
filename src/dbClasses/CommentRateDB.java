@@ -76,13 +76,13 @@ public class CommentRateDB {
 		public ResultSet retrieveRatings(String post_u_name)
 		{
 			
-			PreparedStatement viewCommentsStmt;
+			PreparedStatement retrieveRatingsStmt;
 			ResultSet resultSet=null;
 			try 
 			{
-				viewCommentsStmt = DBDemo.getCon().prepareStatement("SELECT Post_TimeCreated, Comment_Username, CommentTime, CommentText, PhotoLocation, LinkLocation, VideoLocation from post WHERE Post_Username = ?");
-				viewCommentsStmt.setString(1, post_u_name);
-				resultSet=viewCommentsStmt.executeQuery();
+				retrieveRatingsStmt = DBDemo.getCon().prepareStatement("SELECT  from rating WHERE Post_Username = ?");
+				retrieveRatingsStmt.setString(1, post_u_name);
+				resultSet=retrieveRatingsStmt.executeQuery();
 				
 			}
 			catch (SQLException e) 

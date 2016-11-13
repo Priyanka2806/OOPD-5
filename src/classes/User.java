@@ -12,7 +12,10 @@ import dbClasses.UserDB;
 public class User extends Person {
 	protected int karma;
 
-	
+	public User()
+	{
+		super();
+	}
 
 	public User(String username, String primaryEmail, String secondaryEmail,
 			String password, String firstName, String lastName, String address,
@@ -52,12 +55,13 @@ public class User extends Person {
 
 
 	@Override
-	public void deleteUser(String username) {
+	public int deleteUser(String username) {
 		SmartHealthDB shdb = new SmartHealthDB();
 		int var = shdb.deactivateUser(username);
 		if(var == 1){
 			System.out.println("User deactivated successfully!!");
 		}
+		return var;
 		
 	}
 	
