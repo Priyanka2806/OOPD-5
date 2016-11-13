@@ -21,7 +21,7 @@ public class HealthData {
 	
 	
 
-	public void addHealthData(String username, int type, int propId, int propVal) {
+	public int addHealthData(String username, int type, int propId, int propVal) {
 		int addHDResult=0;
 		HealthDataDB hdDB = new HealthDataDB();
 		datum_id_count=hdDB.getRowCount();
@@ -34,16 +34,14 @@ public class HealthData {
 		Date dateHDCreation = calHDCreation.getTime();
 		Timestamp tsHDCreation = new Timestamp(dateHDCreation.getTime());
 		this.hdWhenSaved = tsHDCreation;
-		
-		
-		
-		
+
 		addHDResult=hdDB.addHealthDataDB(datumID,hdUsername,hdpropertyID,hdValue,hdWhenSaved);
 		
 		if(addHDResult==1)
 		{
 			System.out.println("Health data added successfully!");
 		}
+		return addHDResult;
 		
 	}
 	
@@ -82,9 +80,9 @@ public class HealthData {
 		return flag;
 	}
 	
-	protected void displayYourFriendsHealthData(String username){
+	protected int displayYourFriendsHealthData(String username){
 		ResultSet rs = null;
-		
+		int temp = 0;
 		FriendshipDB fdb = new FriendshipDB();
 		rs = fdb.displayActiveFriends(username);
 		HealthDataDB hddb = new HealthDataDB();
@@ -116,7 +114,7 @@ public class HealthData {
 				
 				ResultSet rs_viewHD;
 				rs_viewHD=hddb.displayHealthDataFromDB(friendName);
-				int temp = 0;
+				
 				System.out.println("For friend " + friendName + " health data details are-");
 				while(rs_viewHD.next())
 				{
@@ -130,6 +128,7 @@ public class HealthData {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+		return temp;
 	}
+	
 }
